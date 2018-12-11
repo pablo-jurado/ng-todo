@@ -1,0 +1,5 @@
+<p>
+  {{ todo.description }}
+  <button *ngIf="todo.isDone" class="item-done" (click)="toggle()">Undone</button>
+  <button *ngIf="!todo.isDone" class="item-undone" (click)="toggle()">Done</button>
+</p>

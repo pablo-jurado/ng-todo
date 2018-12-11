@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Todo from './todo';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'todo';
+  title = 'ng Todo App';
+  allTodos: Todo[] = [];
+
+  createNewTodo(description) {
+    this.allTodos.unshift(new Todo(description));
+    console.log(this.allTodos);
+  }
 }
