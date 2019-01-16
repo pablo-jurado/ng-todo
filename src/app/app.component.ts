@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import Todo from './todo';
 
 @Component({
@@ -9,6 +9,10 @@ import Todo from './todo';
 export class AppComponent {
   title = 'ng Todo App';
   allTodos: Todo[] = [];
+
+  @HostListener("EventEmitter") testing() {
+    console.log("testing");
+  }
 
   createNewTodo(description) {
     this.allTodos.unshift(new Todo(description));

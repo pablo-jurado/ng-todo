@@ -25,7 +25,7 @@ export class TodoInputComponent implements OnInit {
   @HostListener("click", ['$event.target'])
   onSubmit(target) {
     console.log("component clicked");
-    if (target.type === "button" && this.todo) {
+    if (target.type === "submit" && this.todo) {
         console.log("button clicked");
         this.newTodoEvent.emit(this.todo);
         this.clearInput();
