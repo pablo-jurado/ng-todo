@@ -1,5 +1,11 @@
 # Todo
 
+## Exercises
+Modify the angular todo application to include clicking or other event handling.
+Modify the angular todo application to use a form to add a todo.
+Modify the angular todo application to use @HostBinding and @HostListener so that a component if better encapsulated.
+Also look over your types in your application and figure out if there are any better representation for them giving what we have learned today about types.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
 ## Development server
