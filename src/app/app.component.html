@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="main-app">
   <h1>{{ title }}!</h1>
-  <todo-input (newTodo)="createNewTodo($event)"></todo-input>
+  <todo-input (newTodoEvent)="createNewTodo($event)"></todo-input>
   <todo-list [todos]="allTodos"></todo-list>
 </div>
   
