@@ -10,10 +10,7 @@ export class TodoInputComponent implements OnInit {
   todo: string;
   @Output() newTodoEvent = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   clearInput() {
     this.todo = "";

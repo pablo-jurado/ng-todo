@@ -8,14 +8,17 @@ import Todo from './todo';
 })
 export class AppComponent {
   title = 'ng Todo App';
-  allTodos: Todo[] = [];
+  allTodos: Todo[] = [
+    new Todo("code"),
+    new Todo("code more"),
+    new Todo("repeat")
+  ];
 
-  @HostListener("EventEmitter") testing() {
-    console.log("testing");
-  }
+  // @HostListener("EventEmitter") testing() {
+  //   console.log("testing");
+  // }
 
   createNewTodo(description) {
     this.allTodos.unshift(new Todo(description));
-    console.log(this.allTodos);
   }
 }
