@@ -1,31 +1,25 @@
-import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../todo.service'
+import { FormGroup, FormBuilder} from '@angular/forms'
 
 @Component({
   selector: 'todo-input',
   templateUrl: './todo-input.component.html',
   styleUrls: ['./todo-input.component.less']
 })
-export class TodoInputComponent implements OnInit {
-  
-  todo: string;
-  @Output() newTodoEvent = new EventEmitter();
+export class TodoInputComponent  {
+  myForm: FormGroup;
 
-  ngOnInit() {}
-
-  clearInput() {
-    this.todo = "";
+  constructor(private todoService: TodoService, FormBuilder: FormBuilder) {
+    this.myForm = FormBuilder.group({
+      'description': ''
+    });
   }
 
-  // @HostListener("click") is the same as the following
-  // <button (click)="onSubmit()">Add Todo</button>
-  // but it is applied to the whole component
-  @HostListener("click", ['$event.target'])
-  onSubmit(target) {
-    console.log("component clicked");
-    if (target.type === "submit" && this.todo) {
-        console.log("button clicked");
-        this.newTodoEvent.emit(this.todo);
-        this.clearInput();
+  onSubmit(input) {
+    if (input.description) {
+      this.todoService.add(input.description)
+      this.myForm.reset()
     }
     return false;
   }

@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
+import { TodoService } from './todo.service';
 import Todo from './todo';
 
 @Component({
@@ -8,17 +9,9 @@ import Todo from './todo';
 })
 export class AppComponent {
   title = 'ng Todo App';
-  allTodos: Todo[] = [
-    new Todo("code"),
-    new Todo("code more"),
-    new Todo("repeat")
-  ];
+  allTodos: Todo[];
 
-  // @HostListener("EventEmitter") testing() {
-  //   console.log("testing");
-  // }
-
-  createNewTodo(description) {
-    this.allTodos.unshift(new Todo(description));
+  constructor(private todoService: TodoService) {
+    this.allTodos = this.todoService.todos;
   }
 }

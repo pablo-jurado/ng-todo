@@ -1,7 +1,10 @@
 <div class="item">
   <label [ngStyle]="{'text-decoration': todo.isDone ? 'line-through' : 'none'}">
     <input type="checkbox" (click)="toggle(todo)">
-    {{  todo.description}}
+
+    <span *ngIf="!todo.edit">{{ todo.description }}</span>
+    <input *ngIf="todo.edit" type="text" [(ngModel)]="newValue" (focusout)="focusOutFunction()">
+  
   </label>
   <span [hidden]="!isHovering" style="float: right">
     <button (click)="edit(todo)">Edit</button>

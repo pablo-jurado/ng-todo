@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, HostListener, HostBinding, EventEmitter } from '@angular/core';
+import { TodoService } from "../todo.service";
 import Todo from '../todo';
 
 @Component({
@@ -14,36 +15,40 @@ export class TodoItemComponent implements OnInit {
 
   
   isHovering: boolean;
+  isEditing: boolean;
+  newValue;
 
-  constructor() {
+  constructor(private todoService: TodoService) {
     this.isHovering = false;
   }
   
   ngOnInit() {
+    this.newValue = this.todo.description;
   }
 
   @HostListener("mouseover")
-  mouseIn() {
+  mouseIn():void {
     this.isHovering = true;
   }
 
   @HostListener("mouseout")
-  mouseOut() {
+  mouseOut():void {
     this.isHovering = false;
   }
 
-  toggle(todo) {
-    console.log("toggle", todo);
-    // { todo: todo, action: "toggle" }
+  toggle(todo: Todo):void {
+    this.todoService.toggle(todo);
   }
 
-  delete(todo) {
-    console.log("delete", todo);
-    // { todo: todo, action: "delete" }
+  delete(todo: Todo):void {
+    this.todoService.delete(todo);
   }
 
-  edit(todo) {
-    console.log("edit", todo);
-    // { todo: todo, action: "edit" }
+  edit(todo: Todo):void {
+    this.todoService.toggleEdit(todo);
+  }
+
+  focusOutFunction() {
+    this.todoService.saveNewValue(this.todo, this.newValue)
   }
 }

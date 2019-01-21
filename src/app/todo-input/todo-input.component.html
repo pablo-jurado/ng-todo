@@ -1,5 +1,4 @@
-<form>
-  <input name="todo" [(ngModel)]="todo" type="text">
-  <!-- <button (click)="onSubmit()">Add Todo</button> -->
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+  <input [formControl]="myForm.controls['description']" type="text">
   <button type="submit" >Add Todo</button>
 </form>
