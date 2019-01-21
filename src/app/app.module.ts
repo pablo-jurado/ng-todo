@@ -8,6 +8,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoInputComponent } from './todo-input/todo-input.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { FilterComponent } from './filter/filter.component';
+import { TodoService } from './todo.service'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FilterComponent } from './filter/filter.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

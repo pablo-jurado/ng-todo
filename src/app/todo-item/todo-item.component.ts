@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, HostListener, HostBinding, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { TodoService } from "../todo.service";
 import Todo from '../todo';
 
@@ -11,8 +11,6 @@ import Todo from '../todo';
 export class TodoItemComponent implements OnInit {
 
   @Input() todo: Todo;
-  @Output() todoItemAction = new EventEmitter();
-
   
   isHovering: boolean;
   isEditing: boolean;
@@ -48,7 +46,7 @@ export class TodoItemComponent implements OnInit {
     this.todoService.toggleEdit(todo);
   }
 
-  focusOutFunction() {
+  focusOut() {
     this.todoService.saveNewValue(this.todo, this.newValue)
   }
 }

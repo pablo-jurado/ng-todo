@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import Todo from './todo'
+import Todo from './todo';
+import { Observable, of, from } from 'rxjs';
  
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,10 @@ export class TodoService {
       new Todo("code more"),
       new Todo("repeat")
     ]
+  }
+
+  getAll() {
+    return of(this.todos);
   }
 
   add(description: string):void {

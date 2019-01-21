@@ -12,6 +12,6 @@ export class AppComponent {
   allTodos: Todo[];
 
   constructor(private todoService: TodoService) {
-    this.allTodos = this.todoService.todos;
+    this.todoService.getAll().subscribe(data => this.allTodos = data)
   }
 }
