@@ -19,6 +19,5 @@ export class TodoListComponent implements OnInit {
 
   ngOnChanges(changes) {
     this.filter = changes.filter.currentValue
-    console.log('selected', this.filter);
   }
 }

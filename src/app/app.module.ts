@@ -8,7 +8,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoInputComponent } from './todo-input/todo-input.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { FilterComponent } from './filter/filter.component';
-import { TodoService } from './todo.service'
+import { TodoService } from './todo.service';
+import { CustomPipe } from './custom.pipe'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TodoService } from './todo.service'
     TodoListComponent,
     TodoInputComponent,
     TodoItemComponent,
-    FilterComponent
+    FilterComponent,
+    CustomPipe
   ],
   imports: [
     BrowserModule,
