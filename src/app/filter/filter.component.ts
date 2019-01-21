@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 type FilterType = "all" | "done" | "not done" ;
 
@@ -10,8 +10,9 @@ type FilterType = "all" | "done" | "not done" ;
 export class FilterComponent implements OnInit {
 
   filterOptions: FilterType[];
-
   selectedFilter: FilterType;
+
+  @Output() newFilter: EventEmitter<any> = new EventEmitter();
 
   constructor() {
     this.filterOptions = [
@@ -22,6 +23,11 @@ export class FilterComponent implements OnInit {
     this.selectedFilter = this.filterOptions[0];
   }
   ngOnInit() {
+    this.newFilter.emit(this.selectedFilter) 
+  }
+
+  changeFilter() {
+    this.newFilter.emit(this.selectedFilter)
   }
 
 }

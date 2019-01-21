@@ -10,8 +10,13 @@ import Todo from './todo';
 export class AppComponent {
   title = 'ng Todo App';
   allTodos: Todo[];
+  filterValue: string;
 
   constructor(private todoService: TodoService) {
     this.todoService.getAll().subscribe(data => this.allTodos = data)
+  }
+
+  updateFilter(value) {
+    this.filterValue = value;
   }
 }

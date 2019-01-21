@@ -1,8 +1,7 @@
 <div>
   Show: 
-  <select>
-    <option *ngFor="let filter of filterOptions"
-      value="{{filter}}">
+  <select (change)="changeFilter()" [(ngModel)]="selectedFilter">
+    <option *ngFor="let filter of filterOptions" value="{{filter}}">
       {{ filter }}
     </option>
   </select>
