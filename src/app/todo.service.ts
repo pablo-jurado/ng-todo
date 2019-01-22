@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import Todo from './todo';
 import { Observable, of, from } from 'rxjs';
- 
+import { moveItemInArray } from '@angular/cdk/drag-drop';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -53,5 +54,9 @@ export class TodoService {
         item.edit = false;
       }
     });
+  }
+
+  moveItem(previousIndex, currentIndex) {
+    moveItemInArray(this.todos, previousIndex, currentIndex);
   }
 }

@@ -1,5 +1,5 @@
-<ul class="todo-list">
-  <li *ngFor="let todo of todos | custom:filter">
+<ul class="todo-list" cdkDropList (cdkDropListDropped)="drop($event)">
+  <li *ngFor="let todo of todos | custom:filter" cdkDrag>
     <todo-item [todo]="todo"></todo-item>
   </li>
 </ul>

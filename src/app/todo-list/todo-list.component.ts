@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import Todo from '../todo'
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { TodoService } from "../todo.service";
+import Todo from '../todo';
 
 @Component({
   selector: 'todo-list',
@@ -10,7 +12,7 @@ export class TodoListComponent implements OnInit {
   @Input() todos;
   @Input() filter;
 
-  constructor() {
+  constructor(private todoService: TodoService) {
   }
   
   ngOnInit() {
@@ -19,5 +21,9 @@ export class TodoListComponent implements OnInit {
 
   ngOnChanges(changes) {
     this.filter = changes.filter.currentValue
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    this.todoService.moveItem(event.previousIndex, event.currentIndex);
   }
 }

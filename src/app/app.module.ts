@@ -9,7 +9,8 @@ import { TodoInputComponent } from './todo-input/todo-input.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { FilterComponent } from './filter/filter.component';
 import { TodoService } from './todo.service';
-import { CustomPipe } from './custom.pipe'
+import { CustomPipe } from './custom.pipe';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CustomPipe } from './custom.pipe'
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
